@@ -32,12 +32,30 @@ describe 'User visits the root page' do
       visit '/'
 
       # The page has all the cities listed
-      @language_list.each do |language|
-        expect(page).to have_content(language)
+      within(first('.city'))do
+        @language_list.each do |language|
+          expect(page).to have_content(language)
+        end
+        expect(page).to have_content('Full Time')
+        expect(page).to have_content('Part Time')
+        expect(page).to have_content('Unknown')
       end
-      expect(page).to have_content('Full Time')
-      expect(page).to have_content('Part Time')
-      expect(page).to have_content('Unknown')
+    end
+  end
+
+  describe 'to see a breakdown of languages for each city' do
+    it 'has all the languages for each city listed' do
+      # User visits the root page
+      jobs = JobService.get_jobs
+
+      visit '/'
+
+      # The page has the percentages for the first city
+      within(first('.city')) do
+        expect(page).to have_content('Full Time: ')
+        expect(page).to have_content('Part Time: ')
+        expect(page).to have_content('Unknown: ')
+      end
     end
   end
 end
