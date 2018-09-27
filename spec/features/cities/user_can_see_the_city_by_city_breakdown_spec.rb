@@ -14,7 +14,7 @@ describe 'User visits the root page' do
       # User visits the root page
       visit '/'
 
-      # The page has all the cities listed to start
+      # The page has all the cities listed
       @city_list.each do |city_name|
         expect(page).to have_content(city_name.name)
       end
