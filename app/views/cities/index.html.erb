@@ -1,0 +1,13 @@
+<% @cities.each do |city| %>
+<p><%= city.name %><p>
+  <ul>
+    <% city.languages.each do |language| %>
+    <li><%= language.name %></li>
+    <ul>
+      <li>Full Time: </li>
+      <li>Part Time: </li>
+      <li>Unknown: </li>
+    </ul>
+    <% end %>
+  </ul>
+<% end %>
