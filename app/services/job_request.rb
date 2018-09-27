@@ -19,7 +19,7 @@ class JobRequest
   def request
     conn.get do |req|
       req.params[:location] = @city
-      req.params[:language] = @language
+      req.params[:description] = @language
     end
   end
 end
