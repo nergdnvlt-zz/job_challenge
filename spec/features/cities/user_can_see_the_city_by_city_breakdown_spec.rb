@@ -4,8 +4,13 @@ describe 'User visits the root page' do
   before :each do
     # Populate database with seed information
     @city_list = ['Boston', 'Boulder', 'Chicago', 'Denver', 'Los Angeles', 'New York', 'San Francisco']
+    @language_list = ['Go', 'JavaScript', 'Python', 'Ruby', 'Scala', 'Other']
+
     @city_list.each do |city_name|
-      City.create!(name: city_name)
+      city = City.create!(name: city_name)
+      @language_list.each do |language|
+        city.languages.create!(name: language)
+      end
     end
   end
 
@@ -13,7 +18,7 @@ describe 'User visits the root page' do
     it 'has all the cities listed' do
       # User visits the root page
       visit '/'
-      
+
       # The page has all the cities listed
       @city_list.each do |city_name|
         expect(page).to have_content(city_name)
