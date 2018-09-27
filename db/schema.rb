@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_27_193757) do
+ActiveRecord::Schema.define(version: 2018_09_27_194218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2018_09_27_193757) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "language_id"
+    t.index ["language_id"], name: "index_jobs_on_language_id"
   end
 
   create_table "languages", force: :cascade do |t|
@@ -36,5 +38,6 @@ ActiveRecord::Schema.define(version: 2018_09_27_193757) do
     t.index ["city_id"], name: "index_languages_on_city_id"
   end
 
+  add_foreign_key "jobs", "languages"
   add_foreign_key "languages", "cities"
 end
