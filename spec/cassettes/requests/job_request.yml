@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://jobs.github.com/positions.json?location=Boston
+    uri: https://jobs.github.com/positions.json?language=Scala&location=Boston
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Content-Type:
       - application/json;charset=utf-8
       Date:
-      - Thu, 27 Sep 2018 21:16:46 GMT
+      - Thu, 27 Sep 2018 21:35:32 GMT
       Server:
       - GitHub.com
       Status:
@@ -78,5 +78,5 @@ http_interactions:
         the DevOps market and develop the next generation of DevOps software!</p>","how_to_apply":"<p>Applications
         and information:\nPlease send your resume to <a href=\"mailto:careers@xebialabs.com\">careers@xebialabs.com</a></p>","company":"XebiaLabs","company_url":"http://www.xebialabs.com","company_logo":"http://github-jobs.s3.amazonaws.com/1acf69a4-abb8-11e8-8526-c0949847c598.png","url":"http://jobs.github.com/positions/e348953a-abb9-11e8-8c9c-0e0fd8d099cd"}]'
     http_version: 
-  recorded_at: Thu, 27 Sep 2018 21:16:46 GMT
+  recorded_at: Thu, 27 Sep 2018 21:35:32 GMT
 recorded_with: VCR 4.0.0

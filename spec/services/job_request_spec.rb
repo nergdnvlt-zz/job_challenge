@@ -4,7 +4,7 @@ describe 'Job Request' do
   describe 'pings the github job API' do
     it 'returns the jobs for each city' do
       VCR.use_cassette('requests/job_request') do
-        response = JobRequest.jobs_by_city('Boston')
+        response = JobRequest.jobs_by_city('Boston', 'Scala')
 
         # Testing for JSON response
         expect(response).to be_a(Array)

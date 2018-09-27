@@ -5,7 +5,10 @@ class JobService
 
   def get_jobs
     @cities.each do |city|
-      JobRequest.jobs_by_city(city.name)
+      jobs = JobRequest.jobs_by_city(city.name)
+      jobs.each do |job|
+        JobEvaluator.create_job(job)
+      end
     end
   end
 

@@ -1,25 +1,25 @@
 class JobRequest
-  def self.jobs_by_city(city)
-    new(city).jobs_by_city
+  def self.jobs_by_city(city, language)
+    new(city, language).jobs_by_city
   end
 
   def jobs_by_city
-    raw_jobs
+    a = JSON.parse(request.body, symbolize_names: true)
   end
 
-  def initialize(city)
+  def initialize(city, language)
     @city = city
+    @language = language
   end
 
   def conn
-    Faraday.new(url: "https://jobs.github.com/positions.json?location=#{@city}")
+    Faraday.new(url: "https://jobs.github.com/positions.json")
   end
 
-  def response
-    conn.get { |req| }
-  end
-
-  def raw_jobs
-    JSON.parse(response.body, symbolize_names: true)
+  def request
+    conn.get do |req|
+      req.params[:location] = @city
+      req.params[:language] = @language
+    end
   end
 end
