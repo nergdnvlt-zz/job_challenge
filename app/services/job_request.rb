@@ -1,10 +1,10 @@
 class JobRequest
-  def self.jobs_by_city(city, language)
-    new(city, language).jobs_by_city
+  def self.jobs(city, language)
+    new(city, language).get_jobs
   end
 
-  def jobs_by_city
-    a = JSON.parse(request.body, symbolize_names: true)
+  def get_jobs
+    JSON.parse(request.body, symbolize_names: true)
   end
 
   def initialize(city, language)

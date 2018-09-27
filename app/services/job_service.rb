@@ -1,14 +1,11 @@
 class JobService
   def self.get_jobs
-    new.get_jobs
+    new.get_jobs_by_city
   end
 
-  def get_jobs
+  def get_jobs_by_city
     @cities.each do |city|
-      jobs = JobRequest.jobs_by_city(city.name)
-      jobs.each do |job|
-        JobEvaluator.create_job(job)
-      end
+      LanguageService.jobs_by_language(city)
     end
   end
 

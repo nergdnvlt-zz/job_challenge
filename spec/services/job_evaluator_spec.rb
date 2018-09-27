@@ -3,6 +3,9 @@ require 'rails_helper'
 describe 'JobEvaluator' do
   describe 'it creates a job from job JSON' do
     it 'returns a database job object' do
+      boston = City.create!(name: 'Boston')
+      java = boston.languages.create!(name: 'Java')
+
       job_attrs = {:id=>"e348953a-abb9-11e8-8c9c-0e0fd8d099cd",
         :created_at=>"Wed Aug 29 18:35:29 UTC 2018",
         :title=>"Full Stack Developer",
@@ -15,10 +18,11 @@ describe 'JobEvaluator' do
         :company_url=>"http://www.xebialabs.com",
         :company_logo=>"http://github-jobs.s3.amazonaws.com/1acf69a4-abb8-11e8-8526-c0949847c598.png",
         :url=>"http://jobs.github.com/positions/e348953a-abb9-11e8-8c9c-0e0fd8d099cd"}
-      job = JobEvaluator.create_job(job_attrs)
+
+      job = JobEvaluator.create_job(java, job_attrs)
 
       expect(job.title).to eq('Full Stack Developer')
-      expect(job.type).to eq('Full Time')
+      expect(job.job_type).to eq('Full Time')
     end
   end
 end

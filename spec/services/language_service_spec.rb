@@ -1,10 +1,17 @@
 require 'rails_helper'
 
-describe 'Job Request' do
+describe 'Language Service' do
   describe 'pings the github job API' do
     it 'returns the jobs for each city' do
-      response = JobRequest.jobs('Boston', 'Scala')
-      
+      boston = City.create!(name: 'Boston')
+
+      language_list = ['Go', 'JavaScript', 'Python', 'Ruby', 'Scala', 'Other']
+      language_list.each do |language|
+        boston.languages.create!(name: language)
+      end
+
+      response = LanguageService.jobs_by_language(boston)
+      binding.pry
       # Testing for JSON response
       expect(response).to be_a(Array)
       expect(response[0]).to be_a(Hash)
