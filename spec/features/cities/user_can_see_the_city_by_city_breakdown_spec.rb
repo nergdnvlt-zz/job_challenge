@@ -43,19 +43,19 @@ describe 'User visits the root page' do
     end
   end
 
-  describe 'to see a breakdown of languages for each city' do
-    it 'has all the languages for each city listed' do
-      # User visits the root page
-      jobs = JobService.get_jobs
-
-      visit '/'
-
-      # The page has the percentages for the first city
-      within(first('.city')) do
-        expect(page).to have_content('Full Time: ')
-        expect(page).to have_content('Part Time: ')
-        expect(page).to have_content('Unknown: ')
-      end
-    end
-  end
+  # describe 'to see a breakdown of languages for each city' do
+  #   it 'has all the languages for each city listed' do
+  #     # User visits the root page
+  #     jobs = JobService.get_jobs
+  #
+  #     visit '/'
+  #
+  #     # The page has the percentages for the first city
+  #     within(first('.city')) do
+  #       expect(page).to have_content('Full Time: ')
+  #       expect(page).to have_content('Part Time: ')
+  #       expect(page).to have_content('Unknown: ')
+  #     end
+  #   end
+  # end
 end
