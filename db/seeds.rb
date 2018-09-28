@@ -10,3 +10,5 @@ city_list = ['Boston', 'Boulder', 'Chicago', 'Denver', 'Los Angeles', 'New York'
 city_list.each do |city_name|
   City.create!(name: city_name)
 end
+
+JobService.get_jobs

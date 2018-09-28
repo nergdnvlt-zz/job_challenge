@@ -16,6 +16,8 @@ class JobEvaluator
     return @city.jobs.all
   end
 
+  private
+
   def initialize(city, raw_jobs)
     @city = city
     @raw_jobs = raw_jobs

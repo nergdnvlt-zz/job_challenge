@@ -7,6 +7,8 @@ class CityService
     JobEvaluator.create_jobs(@city, request_jobs)
   end
 
+  private
+
   def request_jobs
     JobRequest.jobs(@city.name)
   end
