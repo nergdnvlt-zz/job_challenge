@@ -7,6 +7,8 @@ class JobRequest
     JSON.parse(request.body, symbolize_names: true)
   end
 
+  private
+
   def initialize(city)
     @city = city
   end
