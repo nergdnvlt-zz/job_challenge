@@ -34,7 +34,7 @@ describe 'User visits the root page' do
       within(first('.city')) do
         expect(page).to have_content('JavaScript')
         expect(page).to have_content('Java')
-        expect(page).to have_content('Full Time: 100.0%')
+        expect(page).to have_content('Full Time: 100%')
         expect(page).to have_content('Python')
         expect(page).to have_content('Ruby')
         expect(page).to have_content('Scala')
