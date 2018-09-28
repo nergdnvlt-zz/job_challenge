@@ -1,15 +1,14 @@
 class JobRequest
-  def self.jobs(city, language)
-    new(city, language).get_jobs
+  def self.jobs(city)
+    new(city).get_jobs
   end
 
   def get_jobs
     JSON.parse(request.body, symbolize_names: true)
   end
 
-  def initialize(city, language)
+  def initialize(city)
     @city = city
-    @language = language
   end
 
   def conn
@@ -19,7 +18,6 @@ class JobRequest
   def request
     conn.get do |req|
       req.params[:location] = @city
-      req.params[:description] = @language
     end
   end
 end

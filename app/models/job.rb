@@ -3,5 +3,5 @@ class Job < ApplicationRecord
 
   belongs_to :city
 
-  enum language: ['Go', 'JavaScript', 'Java', 'Python', 'Ruby', 'Scala', 'Other']
+  enum language: ['JavaScript', 'Java', 'Python', 'Ruby', 'Scala', 'Other']
 end

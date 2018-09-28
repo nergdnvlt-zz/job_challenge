@@ -4,13 +4,9 @@ describe 'Job Service' do
   before :each do
     # Populate database with seed information
     @city_list = ['Boston', 'Boulder', 'Chicago', 'Denver', 'Los Angeles', 'New York', 'San Francisco']
-    @language_list = ['Go', 'JavaScript', 'Python', 'Ruby', 'Scala', 'Other']
 
     @city_list.each do |city_name|
-      city = City.create!(name: city_name)
-      @language_list.each do |language|
-        city.languages.create!(name: language)
-      end
+      City.create!(name: city_name)
     end
   end
 
@@ -20,26 +16,25 @@ describe 'Job Service' do
       cities = City.all
 
       # Expect Boston to have 1 job
-      expect(cities[0].languages[0].jobs.count).to eq(0)
-      expect(cities[0].languages[1].jobs.count).to eq(1)
+      expect(cities[0].jobs.count).to eq(1)
 
-      # Expect Boulder to have 1 job
-      expect(cities[1].languages.jobs.count).to eq(1)
+      # # Expect Boulder to have 1 job
+      expect(cities[1].jobs.count).to eq(1)
 
       # Expect Chicago to have 4 jobs
-      expect(cities[2].languages.jobs.count).to eq(4)
+      expect(cities[2].jobs.count).to eq(4)
 
       # Expect Denver to have 1 job
-      expect(cities[3].languages.jobs.count).to eq(1)
+      expect(cities[3].jobs.count).to eq(1)
 
       # Expect Los Angeles to have 2 jobs
-      expect(cities[4].languages.jobs.count).to eq(2)
+      expect(cities[4].jobs.count).to eq(2)
 
       # Expect New York to have 10 jobs
-      expect(cities[5].languages.jobs.count).to eq(10)
+      expect(cities[5].jobs.count).to eq(10)
 
       # Expect San Fran to have 22 jobs
-      expect(cities[6].languages.jobs.count).to eq(22)
+      expect(cities[6].jobs.count).to eq(22)
     end
   end
 end

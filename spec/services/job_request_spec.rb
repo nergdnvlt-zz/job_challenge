@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Job Request' do
   describe 'pings the github job API' do
     it 'returns the jobs for each city' do
-      response = JobRequest.jobs('Boston', 'Scala')
+      response = JobRequest.jobs('Boston')
 
       # Testing for JSON response
       expect(response).to be_a(Array)
