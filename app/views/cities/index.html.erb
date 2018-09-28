@@ -1,13 +1,37 @@
-<% @cities.each do |city| %>
+<% @presenter.cities.each do |city| %>
 <div class="city">
   <p><%= city.name %></p>
     <ul>
-      <li>JavaScript: </li>
-      <li>Java: </li>
-      <li>Python: </li>
-      <li>Ruby: </li>
-      <li>Scala: </li>
-      <li>Other: </li>
+      <li>Java:</li>
+        <ul>
+          <li>Full Time: <%= city.java_full_percent %>%</li>
+          <li>Part Time: <%= city.java_part_percent %>%</li>
+        </ul>
+      <li>JavaScript:</li>
+        <ul>
+          <li>Full Time: <%= city.javascript_full_percent %>%</li>
+          <li>Part Time: <%= city.javascript_part_percent %>%</li>
+        </ul>
+      <li>Python:</li>
+        <ul>
+          <li>Full Time: <%= city.python_full_percent %>%</li>
+          <li>Part Time: <%= city.python_part_percent %>%</li>
+        </ul>
+      <li>Ruby:</li>
+        <ul>
+          <li>Full Time: <%= city.ruby_full_percent %>%</li>
+          <li>Part Time: <%= city.ruby_part_percent %>%</li>
+        </ul>
+      <li>Scala:</li>
+        <ul>
+          <li>Full Time: <%= city.scala_full_percent %>%</li>
+          <li>Part Time: <%= city.scala_part_percent %>%</li>
+        </ul>
+      <li>Other:</li>
+        <ul>
+          <li>Full Time: <%= city.other_full_percent %>%</li>
+          <li>Part Time: <%= city.other_part_percent %>%</li>
+        </ul>
     </ul>
 </div>
 <% end %>
