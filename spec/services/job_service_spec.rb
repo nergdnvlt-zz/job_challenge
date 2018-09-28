@@ -20,7 +20,8 @@ describe 'Job Service' do
       cities = City.all
 
       # Expect Boston to have 1 job
-      expect(cities[0].languages.jobs.count).to eq(1)
+      expect(cities[0].languages[0].jobs.count).to eq(0)
+      expect(cities[0].languages[1].jobs.count).to eq(1)
 
       # Expect Boulder to have 1 job
       expect(cities[1].languages.jobs.count).to eq(1)

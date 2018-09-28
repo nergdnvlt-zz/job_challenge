@@ -11,7 +11,8 @@ describe 'Language Service' do
       end
 
       languages = LanguageService.jobs_by_language(boston)
-      # Testing for JSON response
+
+      # Testing for Each Language
       expect(languages).to be_a(Array)
       expect(languages[0].name).to eq('Go')
       expect(languages[0].jobs.count).to eq(0)
