@@ -6,6 +6,6 @@ RSpec.describe City, type: :model do
   end
 
   describe 'relationships' do
-    it { should have_many :languages }
+    it { should have_many :jobs }
   end
 end
