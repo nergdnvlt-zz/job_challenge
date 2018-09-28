@@ -13,6 +13,7 @@ class JobEvaluator
         language: lang
       )
     end
+    return @city.jobs.all
   end
 
   def initialize(city, raw_jobs)

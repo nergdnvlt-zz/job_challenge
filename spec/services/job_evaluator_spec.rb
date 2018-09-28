@@ -4,9 +4,8 @@ describe 'JobEvaluator' do
   describe 'it creates a job from job JSON' do
     it 'returns a database job object' do
       boston = City.create!(name: 'Boston')
-      java = boston.languages.create!(name: 'Java')
 
-      job_attrs = {:id=>"e348953a-abb9-11e8-8c9c-0e0fd8d099cd",
+      job_attrs = [{:id=>"e348953a-abb9-11e8-8c9c-0e0fd8d099cd",
         :created_at=>"Wed Aug 29 18:35:29 UTC 2018",
         :title=>"Full Stack Developer",
         :location=>"Burlington, MA",
@@ -17,12 +16,13 @@ describe 'JobEvaluator' do
         :company=>"XebiaLabs",
         :company_url=>"http://www.xebialabs.com",
         :company_logo=>"http://github-jobs.s3.amazonaws.com/1acf69a4-abb8-11e8-8526-c0949847c598.png",
-        :url=>"http://jobs.github.com/positions/e348953a-abb9-11e8-8c9c-0e0fd8d099cd"}
+        :url=>"http://jobs.github.com/positions/e348953a-abb9-11e8-8c9c-0e0fd8d099cd"}]
 
-      job = JobEvaluator.create_job(java, job_attrs)
+      jobs = JobEvaluator.create_jobs(boston, job_attrs)
 
-      expect(job.title).to eq('Full Stack Developer')
-      expect(job.job_type).to eq('Full Time')
+      expect(jobs[0].title).to eq('Full Stack Developer')
+      expect(jobs[0].job_type).to eq('Full Time')
+      expect(jobs[0].language).to eq('Java')
     end
   end
 end
