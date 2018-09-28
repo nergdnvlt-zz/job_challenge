@@ -28,13 +28,13 @@ describe 'Job Service' do
       expect(cities[3].jobs.count).to eq(1)
 
       # Expect Los Angeles to have 2 jobs
-      expect(cities[4].jobs.count).to eq(2)
+      expect(cities[4].jobs.count).to eq(1)
 
       # Expect New York to have 10 jobs
       expect(cities[5].jobs.count).to eq(10)
 
       # Expect San Fran to have 22 jobs
-      expect(cities[6].jobs.count).to eq(22)
+      expect(cities[6].jobs.count).to eq(21)
     end
   end
 end
